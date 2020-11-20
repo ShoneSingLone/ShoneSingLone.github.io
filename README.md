@@ -87,3 +87,6 @@ pointerevent
 登录
 服务器
 反向代理
+
+git stash
+ git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch other/doc/' --prune-empty --tag-name-filter cat -- --all

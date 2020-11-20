@@ -1,15 +1,19 @@
 <template>
   <header class="nav-top-bar">
     <div class="container">
-      <div class="wrapper toggle-drawer right" v-if="isMobile" @click="toggleModal">
+      <div
+        class="wrapper toggle-drawer right"
+        v-if="isMobile"
+        @click="toggleModal"
+      >
         <button-toggle-drawer />
       </div>
       <div class="wrapper avatar" @click="toggleLoginModal">
-        <figure-avatar/>
+        <figure-avatar />
       </div>
     </div>
     <nav class="wrapper nav">
-      <nav-drawer-pills :isMobile="isMobile " />
+      <nav-drawer-pills :isMobile="isMobile" />
       <!-- <nav-pills/> -->
     </nav>
     <transition name="fade">
@@ -17,7 +21,6 @@
         <panel-login v-on:login="toggleLoginModal" />
       </div>
     </transition>
-
   </header>
 </template>
 
@@ -35,8 +38,8 @@ export default {
     return {
       brand: this.navbarTitle || "Control panel",
       isShow: {
-        loginPanel: false
-      }
+        loginPanel: false,
+      },
     };
   },
   methods: {
@@ -56,7 +59,7 @@ export default {
     othertest(e) {
       console.log("$e", e);
       this.isShow.loginPanel = !this.isShow.loginPanel;
-    }
+    },
   },
   components: {
     "button-toggle-drawer": ButtonToggleDrawer,
@@ -64,14 +67,14 @@ export default {
     "nav-drawer-pills": NavDrawerPills,
     "figure-avatar": FigureAvatar,
     "panel-login": PanelLogin,
-    "bs-modal": BSModal
+    "bs-modal": BSModal,
   },
   computed: {
     //根据视窗宽度决定是否显示ToggleButton
     isMobile() {
       return this.$store.getters["IS_MOBILE"];
-    }
-  }
+    },
+  },
 };
 </script>
 

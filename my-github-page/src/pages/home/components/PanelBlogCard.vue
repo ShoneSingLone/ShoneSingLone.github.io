@@ -4,11 +4,11 @@
       <div class="panel">
         <div class="heading" @click="readMore(blog.path)">
           <h2 class="title" ref="heading">
-            <span>{{blog.name}}</span>
+            <span>{{ blog.name }}</span>
           </h2>
         </div>
         <div class="body">
-          <p class="desc">{{blog.desc}}</p>
+          <p class="desc">{{ blog.desc }}</p>
         </div>
         <div class="panel-footer" ref="footer">
           <div class="minilogo"></div>
@@ -35,12 +35,12 @@ export default {
     return {
       detail: {
         available: false,
-        articleInfo: {}
-      }
+        articleInfo: {},
+      },
     };
   },
-  mounted: function() {
-    this.$nextTick(function() {});
+  mounted: function () {
+    this.$nextTick(function () {});
   },
   components: {},
   methods: {
@@ -49,27 +49,27 @@ export default {
       this.$router.push({
         name: "blog.detail",
         query: { path },
-        params: this.blog
+        params: this.blog,
       });
-    }
+    },
   },
   watch: {
-    detail: function(newInfo, oldInfo) {
+    detail: function (newInfo, oldInfo) {
       if (newInfo.available) {
       }
-    }
+    },
   },
   computed: {
     createdDate() {
       var articleDate = new Date(this.article.date);
       return articleDate.toLocaleString("zh");
-    }
+    },
   },
   beforeCreate() {},
   created() {
     this.getBlogDetail(this.blog);
     // console.log("this && this.blog", this && this.blog);
-  }
+  },
 };
 </script>
 

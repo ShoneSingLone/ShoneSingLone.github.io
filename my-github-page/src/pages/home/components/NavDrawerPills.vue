@@ -25,9 +25,9 @@ let anchorArray = [
   {
     title: "GitHub",
     href: "https://github.com/ShoneSingLone",
-    target: "_blank"
+    target: "_blank",
   },
-  { title: "E-mail", href: "mailto:SingLone@foxmail.com" }
+  { title: "E-mail", href: "mailto:SingLone@foxmail.com" },
 ];
 export default {
   name: "NavDrawer",
@@ -35,17 +35,17 @@ export default {
     isMobile: {
       type: Boolean,
       required: true,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       anchorArray,
-      whichActiveAnchor: 0
+      whichActiveAnchor: 0,
     };
   },
   components: {
-    "bs-modal": BSModal
+    "bs-modal": BSModal,
   },
   methods: {
     setActiveAnchor(index, anchor) {
@@ -60,7 +60,7 @@ export default {
         : "SET_MODAL_SHOW";
       vue.$store.commit(command);
       console.log("isShowModal", this.isShowModal);
-    }
+    },
   },
   computed: {
     isShowNav() {
@@ -69,8 +69,8 @@ export default {
     },
     isShowModal() {
       return this.$store.state.mainState.isShowModal && this.isMobile;
-    }
-  }
+    },
+  },
 };
 </script>
 

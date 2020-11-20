@@ -5,11 +5,13 @@
         <h2 class="heading-text" v-html="card.heading.content"></h2>
       </div>
       <div class="panel-body">
-        <div class="body-text" v-html="card.body.content">
-        </div>
+        <div class="body-text" v-html="card.body.content"></div>
       </div>
-      <div class="panel-footer" v-html="card.footer.content" @click="readMore(card.footer)">
-      </div>
+      <div
+        class="panel-footer"
+        v-html="card.footer.content"
+        @click="readMore(card.footer)"
+      ></div>
     </div>
   </div>
 </template>
@@ -23,8 +25,8 @@ export default {
     card: {
       type: Object,
       required: true,
-      default: {}
-    }
+      default: {},
+    },
   },
   data() {
     return {
@@ -34,7 +36,7 @@ export default {
      */
     };
   },
-  mounted: function() {},
+  mounted: function () {},
   components: {
     /* 
     // "bs-modal": BSModal
@@ -43,7 +45,7 @@ export default {
   methods: {
     readMore(route) {
       window.open(route.href);
-    }
+    },
   },
   computed: {
     // hContent() {
@@ -58,7 +60,7 @@ export default {
       return this.$store.state.mainState.isShowModal && this.isMobile;
     }
    */
-  }
+  },
 };
 </script>
 

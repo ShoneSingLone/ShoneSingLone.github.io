@@ -1,8 +1,8 @@
 <template>
   <div class="login wrapper">
     <div class="cont">
-      <input type="text" name="" v-model="user.name">
-      <input type="password" name="" v-model="user.pwd">
+      <input type="text" name="" v-model="user.name" />
+      <input type="password" name="" v-model="user.pwd" />
       <a class="btn-login" type="submit" v-on:click="login($event)">Login</a>
     </div>
   </div>
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       user: { name: "", pwd: "" },
-      erroeTip: false
+      erroeTip: false,
     };
   },
   methods: {
@@ -24,9 +24,9 @@ export default {
       vue.axios
         .post(window.remotHost + "p/api", {
           type: "login",
-          data: this.user
+          data: this.user,
         })
-        .then(response => {
+        .then((response) => {
           if (200 === response.status) {
             let info = response.data;
             console.log("info.sucess", info.sucess);
@@ -37,11 +37,11 @@ export default {
             }
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

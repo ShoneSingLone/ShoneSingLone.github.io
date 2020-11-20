@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-detail ">
+  <div class="blog-detail">
     <!--  -->
     <main class="container content">
       <!--  -->
@@ -15,7 +15,7 @@
       <div class="row posts">
         <div class="col-md-8">
           <div class="title">
-            <h3 class="text">{{blogDetailCurrent.title}}</h3>
+            <h3 class="text">{{ blogDetailCurrent.title }}</h3>
           </div>
           <div class="meta">
             <div class="minilogo">
@@ -39,8 +39,11 @@
               </div>
             </div>
           </div>
-          <article id="blog-html-content" class="" v-html="blogDetailCurrent.contentHtml">
-          </article>
+          <article
+            id="blog-html-content"
+            class=""
+            v-html="blogDetailCurrent.contentHtml"
+          ></article>
         </div>
         <div class="col-md-4">
           <aside class="post-widget">
@@ -122,11 +125,9 @@
         </div>
       </div>
       <!-- comment end -->
-
     </main>
     <!--  -->
   </div>
-
 </template>
 
 <script>
@@ -141,7 +142,7 @@ export default {
   },
   computed: { ...mapGetters(["blogDetailCurrent"]) },
   components: {
-    "comment-chat": PanelComments
+    "comment-chat": PanelComments,
   },
   created() {
     console.log("BlogDetail created");
@@ -153,11 +154,11 @@ export default {
     ...mapActions(["getBlogDetailCurrent"]),
     setActiveAnchor() {
       this.$router.push({ name: "home.blog", query: { userId: 123 } });
-    }
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("BlogDetail beforeRouteEnter");
-    next(vm => {
+    next((vm) => {
       vm.getBlogDetailCurrent(to.query.path);
     });
     // 在渲染该组件的对应路由被 confirm 前调用
@@ -177,7 +178,7 @@ export default {
     next();
     // 导航离开该组件的对应路由时调用
     // 可以访问组件实例 `this`
-  }
+  },
 };
 </script>
 

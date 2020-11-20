@@ -24,7 +24,7 @@ export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
   data() {
     return {
-      brand: this.navbarTitle || "Control panel"
+      brand: this.navbarTitle || "Control panel",
     };
   },
   methods: {
@@ -34,16 +34,16 @@ export default {
         $("#navbar-toggler").trigger("click");
       }
       return false;
-    }
+    },
   },
   components: {
-    "button-toggle-drawer": ButtonToggleDrawer
+    "button-toggle-drawer": ButtonToggleDrawer,
   },
   computed: {
     isShowToggle() {
       return this.$store.getters["IS_MOBILE"];
-    }
-  }
+    },
+  },
 };
 </script>
 
